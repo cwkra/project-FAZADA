@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+   <children>
+      <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="บัญชีของฉัน">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="primary-button" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="ที่อยู่ของฉัน">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="primary-button" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="เปลี่ยนรหัสผ่าน">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="primary-button" />
+                     </styleClass>
+                  </Button>
+                  <Label alignment="CENTER" prefHeight="75.0" prefWidth="200.0" text="การซื้อของฉัน">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="tertiary-color" />
+                        <String fx:value="shadow-effect" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </BorderPane.margin>
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+                  <String fx:value="round-border" />
+               </styleClass>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <Label text="การซื้อของฉัน">
+                           <styleClass>
+                              <String fx:value="header-text" />
+                              <String fx:value="tertiary-color" />
+                              <String fx:value="round-border" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                           <padding>
+                              <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="25.0" top="25.0" />
+                           </HBox.margin>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
+                           <HBox.margin>
+                              <Insets bottom="15.0" left="100.0" top="15.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="tertiary-color" />
+                              <String fx:value="round-border" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                           <children>
+                              <Button mnemonicParsing="false" prefWidth="150.0" text="ทั้งหมด">
+                                 <styleClass>
+                                    <String fx:value="primary-button" />
+                                    <String fx:value="shadow-effect" />
+                                    <String fx:value="round-border" />
+                                    <String fx:value="normal-text" />
+                                 </styleClass>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefWidth="150.0" text="ที่ต้องได้รับ">
+                                 <styleClass>
+                                    <String fx:value="primary-button" />
+                                    <String fx:value="shadow-effect" />
+                                    <String fx:value="round-border" />
+                                    <String fx:value="normal-text" />
+                                 </styleClass>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefWidth="150.0" text="สำเร็จแล้ว">
+                                 <styleClass>
+                                    <String fx:value="primary-button" />
+                                    <String fx:value="shadow-effect" />
+                                    <String fx:value="round-border" />
+                                    <String fx:value="normal-text" />
+                                 </styleClass>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="450.0" prefWidth="900.0">
+                     <children>
+                        <ScrollPane prefWidth="980.0">
+                           <content>
+                              <GridPane prefHeight="1.0" prefWidth="0.0">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+               <children>
+                  <Button mnemonicParsing="false" text="&lt; ย้อนกลับ">
+                     <styleClass>
+                        <String fx:value="round-border" />
+                        <String fx:value="button-text" />
+                        <String fx:value="cancel-button" />
+                        <String fx:value="shadow-effect" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/interrogation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="primary-button" />
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="round-border" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="850.0" />
+                     </HBox.margin>
+                  </Button>
+                  <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect">
+                     <image>
+                        <Image url="@../../../images/FAZADA.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="15.0" right="25.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

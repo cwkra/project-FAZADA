@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+   <children>
+      <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="บัญชีของฉัน">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="primary-button" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="ที่อยู่ของฉัน">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="primary-button" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="เปลี่ยนรหัสผ่าน">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="primary-button" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="การซื้อของฉัน">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="primary-button" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </BorderPane.margin>
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+                  <String fx:value="round-border" />
+               </styleClass>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <Label text="เพิ่มที่อยู่">
+                           <styleClass>
+                              <String fx:value="header-text" />
+                              <String fx:value="tertiary-color" />
+                              <String fx:value="round-border" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                           <padding>
+                              <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="25.0" top="25.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="900.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="ชื่อ">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefWidth="400.0" promptText="ชื่อ">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="900.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="หมายเลขโทรศัพท์">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefWidth="400.0" promptText="หมายเลขโทรศัพท์">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="900.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="เขต/อำเภอ">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefWidth="400.0" promptText="เขต/อำเภอ">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="900.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="จังหวัด">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefWidth="400.0" promptText="จังหวัด">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="900.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="รายละเอียดที่อยู่">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextArea prefHeight="300.0" prefWidth="400.0" promptText="รายละเอียดที่อยู่">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="580.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefWidth="200.0" text="บันทึกข้อมูล">
+                           <styleClass>
+                              <String fx:value="round-border" />
+                              <String fx:value="button-text" />
+                              <String fx:value="submit-button" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="200.0" text="ยกเลิก">
+                           <styleClass>
+                              <String fx:value="round-border" />
+                              <String fx:value="button-text" />
+                              <String fx:value="cancel-button" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+               <children>
+                  <Button mnemonicParsing="false" text="&lt; ย้อนกลับ">
+                     <styleClass>
+                        <String fx:value="round-border" />
+                        <String fx:value="button-text" />
+                        <String fx:value="cancel-button" />
+                        <String fx:value="shadow-effect" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/interrogation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="primary-button" />
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="round-border" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="850.0" />
+                     </HBox.margin>
+                  </Button>
+                  <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect">
+                     <image>
+                        <Image url="@../../../images/FAZADA.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="15.0" right="25.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

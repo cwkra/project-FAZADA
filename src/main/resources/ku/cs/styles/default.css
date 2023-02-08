@@ -1,0 +1,108 @@
+.primary-color {
+    -fx-background-color: #ED8CC9;
+}
+
+.secondary-color {
+    -fx-background-color: #9B6DBF;
+}
+
+.tertiary-color {
+    -fx-background-color: #FDE9C0;
+}
+
+.quarterly-color {
+    -fx-background-color: #fff;
+}
+
+.success-color {
+    -fx-background-color: #91C9C7;
+}
+
+.fail-color {
+    -fx-background-color: #F394AF;
+}
+
+.round-border {
+    -fx-background-radius: 50;
+}
+
+.shadow-effect {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 20, 0, 0, 3);;
+}
+
+.header-text {
+    -fx-font-family: "FC Iconic";
+    -fx-font-size: 36;
+    -fx-font-weight: BOLD;
+}
+
+.normal-text {
+    -fx-font-family: "FC Iconic";
+    -fx-font-size: 20;
+    -fx-font-weight: BOLD;
+}
+
+.button-text {
+    -fx-font-family: "FC Iconic";
+    -fx-font-size: 28;
+    -fx-font-weight: BOLD;
+}
+
+.primary-button {
+    -fx-background-color: #9BC4DB;
+}
+
+.primary-button:hover {
+    -fx-cursor: HAND;
+    -fx-background-color: #fff;
+    -fx-text-fill: #9BC4DB;
+}
+
+.submit-button {
+    -fx-background-color: #91C9C7;
+}
+
+.submit-button:hover {
+    -fx-cursor: HAND;
+    -fx-background-color: #fff;
+    -fx-text-fill: #91C9C7;
+}
+
+.cancel-button {
+    -fx-background-color: #F394AF;
+}
+
+.cancel-button:hover {
+    -fx-cursor: HAND;
+    -fx-background-color: #fff;
+    -fx-text-fill: #F394AF;
+}
+
+.text-field {
+    -fx-faint-focus-color: #9BC4DB;
+}
+
+.password-field {
+    -fx-faint-focus-color: #9BC4DB;
+}
+
+.scroll-pane {
+    -fx-background-color: #9B6DBF;
+}
+
+.scroll-pane > .viewport  {
+    -fx-background-color: #9B6DBF;
+}
+
+.text-area {
+    -fx-faint-focus-color: #9BC4DB;
+}
+
+.list-view .list-cell:even {
+    -fx-background-color: FDE9C0;
+    -fx-border-radius: 50;
+}
+.list-view .list-cell:odd {
+    -fx-background-color: FDE9C0;
+    -fx-border-radius: 50;
+}

@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Profile">
+   <children>
+      <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <right>
+            <VBox prefWidth="500.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="25.0" right="25.0" top="25.0" />
+               </BorderPane.margin>
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="round-border" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+               <children>
+                  <Label text="ที่อยู่ในการจัดส่ง">
+                     <styleClass>
+                        <String fx:value="header-text" />
+                        <String fx:value="tertiary-color" />
+                        <String fx:value="round-border" />
+                        <String fx:value="shadow-effect" />
+                     </styleClass>
+                     <padding>
+                        <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="200.0" prefWidth="900.0">
+                     <children>
+                        <ScrollPane prefWidth="980.0">
+                           <content>
+                              <GridPane prefHeight="1.0" prefWidth="0.0">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ScrollPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="ชื่อ">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" prefWidth="300.0" text="ชื่อ">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="quarterly-color" />
+                           </styleClass>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="หมายเลขโทรศัพท์">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" prefWidth="300.0" text="หมายเลขโทรศัพท์">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="quarterly-color" />
+                           </styleClass>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="เขต/อำเภอ">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" prefWidth="300.0" text="เขต/อำเภอ">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="quarterly-color" />
+                           </styleClass>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="จังหวัด">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" prefWidth="300.0" text="จังหวัด">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="quarterly-color" />
+                           </styleClass>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="รายละเอียดที่อยู่">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="round-border" />
+                        <String fx:value="tertiary-color" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="20.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextArea prefHeight="100.0" prefWidth="531.2">
+                     <styleClass>
+                        <String fx:value="normal-text" />
+                        <String fx:value="text-area" />
+                        <String fx:value="shadow-effect" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </BorderPane.margin>
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+                  <String fx:value="round-border" />
+               </styleClass>
+               <children>
+                  <Label text="ยืนยันรายการคำสั่งซื้อ">
+                     <VBox.margin>
+                        <Insets left="25.0" top="25.0" />
+                     </VBox.margin>
+                     <styleClass>
+                        <String fx:value="header-text" />
+                        <String fx:value="tertiary-color" />
+                        <String fx:value="round-border" />
+                        <String fx:value="shadow-effect" />
+                     </styleClass>
+                     <padding>
+                        <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="500.0" text="ข้อความแจ้งเตือน">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="fail-color" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="475.0" prefWidth="200.0">
+                     <children>
+                        <Circle fill="WHITE" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="shadow-effect">
+                           <HBox.margin>
+                              <Insets bottom="200.0" left="25.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <VBox prefHeight="200.0" prefWidth="550.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="ชื่อสินค้า">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="tertiary-color" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="30.0" prefWidth="300.0" text="ชื่อสินค้า">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="quarterly-color" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="จำนวนสินค้า">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="tertiary-color" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="30.0" prefWidth="300.0" text="จำนวนสินค้า">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="quarterly-color" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="จำนวนสินค้า">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="tertiary-color" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="30.0" prefWidth="300.0" text="จำนวนสินค้า">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="quarterly-color" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="รวมการสั่งซื้อ">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="tertiary-color" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="30.0" prefWidth="300.0" text="รวมการสั่งซื้อ x บาท">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="quarterly-color" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="หมวดหมู่สินค้า">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="tertiary-color" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="30.0" prefWidth="300.0" text="หมวดหมู่สินค้า">
+                                       <styleClass>
+                                          <String fx:value="normal-text" />
+                                          <String fx:value="round-border" />
+                                          <String fx:value="quarterly-color" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="รายละเอียดสินค้า">
+                                 <styleClass>
+                                    <String fx:value="normal-text" />
+                                    <String fx:value="round-border" />
+                                    <String fx:value="tertiary-color" />
+                                 </styleClass>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextArea prefHeight="150.0" prefWidth="531.2">
+                                 <styleClass>
+                                    <String fx:value="normal-text" />
+                                    <String fx:value="text-area" />
+                                    <String fx:value="shadow-effect" />
+                                 </styleClass>
+                                 <VBox.margin>
+                                    <Insets left="50.0" right="50.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="580.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="ยืนยันรายการคำสั่งซื้อ">
+                           <styleClass>
+                              <String fx:value="round-border" />
+                              <String fx:value="button-text" />
+                              <String fx:value="submit-button" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+               <children>
+                  <Button mnemonicParsing="false" text="&lt; ย้อนกลับ">
+                     <styleClass>
+                        <String fx:value="round-border" />
+                        <String fx:value="button-text" />
+                        <String fx:value="cancel-button" />
+                        <String fx:value="shadow-effect" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/interrogation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="primary-button" />
+                        <String fx:value="normal-text" />
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="round-border" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="850.0" />
+                     </HBox.margin>
+                  </Button>
+                  <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect">
+                     <image>
+                        <Image url="@../../../images/FAZADA.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="15.0" right="25.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

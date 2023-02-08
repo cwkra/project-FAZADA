@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="200.0" prefWidth="450.0" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+   <styleClass>
+      <String fx:value="shadow-effect" />
+      <String fx:value="round-border" />
+      <String fx:value="tertiary-color" />
+   </styleClass>
+   <children>
+      <HBox layoutX="350.0" layoutY="62.0" prefHeight="200.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="800.0">
+               <children>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Label text="ชื่อ">
+                           <HBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="header-text" />
+                              <String fx:value="tertiary-color" />
+                              <String fx:value="round-border" />
+                           </styleClass>
+                           <padding>
+                              <Insets left="15.0" right="15.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="25.0" layoutY="25.0" styleClass="normal-text" text="(เบอร์โทรศัพท์)">
+                           <HBox.margin>
+                              <Insets left="10.0" top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label ellipsisString="" prefWidth="750.0" styleClass="normal-text" text="รายละเอียดที่อยู่" textOverrun="CLIP" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="25.0" right="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label styleClass="normal-text" text="เขต/อำเภอ, จังหวัด, รหัสไปรษณีย์" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="25.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </HBox.margin>
+               <styleClass>
+                  <String fx:value="round-border" />
+                  <String fx:value="shadow-effect" />
+                  <String fx:value="quarterly-color" />
+               </styleClass>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

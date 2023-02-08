@@ -17,29 +17,17 @@ import java.io.IOException;
 
 public class SignInController {
 
-    @FXML
-    private Button signInButton;
-
-    @FXML
-    private TextField usernameTextField;
-
-    @FXML
-    private PasswordField passwordField;
-
-    @FXML
-    private PasswordField confirmPasswordField;
-
-    @FXML
-    private Button closeButton;
-
-//    @FXML
-//    private MenuButton themeButton;
-
-//    @FXML
-//    private Button signUpButton;
+    @FXML private Button signInButton;
+    @FXML private TextField usernameTextField;
+    @FXML private PasswordField passwordField;
+    @FXML private PasswordField confirmPasswordField;
+    @FXML private Button closeButton;
+//    @FXML private MenuButton themeButton;
+    @FXML private Button signUpButton;
 
     @FXML public void initialize() {
         setButtonEffect(signInButton);
+        setButtonEffect(signUpButton);
         setButtonEffect(closeButton);
     }
     public void setButtonEffect(Button button) {
@@ -57,18 +45,26 @@ public class SignInController {
         });
     }
 
-    @FXML
-    public void clickCloseButton() {
+    @FXML public void clickCloseButton() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
-//    @FXML public void handleSignUpButton(ActionEvent event) throws IOException {
-//        try {
-//            com.github.saacsos.FXRouter.goTo("sign_up");
-//        } catch (IOException e) {
-//            System.err.println("ไปที่หน้า sign_up ไม่ได้");
-//            System.err.println("ให้ตรวจสอบการกำหนด route");
-//        }
-//    }
+    @FXML public void handleSignUpButton(ActionEvent event) throws IOException {
+        try {
+            com.github.saacsos.FXRouter.goTo("sign_up");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า sign_up ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML public void handleSignInButton(ActionEvent event) throws IOException {
+        try {
+            com.github.saacsos.FXRouter.goTo("marketplace");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า marketplace ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 }

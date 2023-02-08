@@ -28,6 +28,7 @@ public class SignUpController {
 
     @FXML public void initialize() {
         setButtonEffect(signUpButton);
+        setButtonEffect(signInButton);
         setButtonEffect(closeButton);
     }
     public void setButtonEffect(Button button) {
@@ -50,12 +51,21 @@ public class SignUpController {
         stage.close();
     }
 
-//    @FXML public void handleSignUpButton(ActionEvent event) throws IOException {
-//        try {
-//            com.github.saacsos.FXRouter.goTo("sign_up");
-//        } catch (IOException e) {
-//            System.err.println("ไปที่หน้า sign_up ไม่ได้");
-//            System.err.println("ให้ตรวจสอบการกำหนด route");
-//        }
-//    }
+    @FXML public void handleSignInButton(ActionEvent event) throws IOException {
+        try {
+            com.github.saacsos.FXRouter.goTo("sign_in");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า sign_in ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML public void handleSignUpButton(ActionEvent event) throws IOException {
+        try {
+            com.github.saacsos.FXRouter.goTo("sign_in");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า sign_in ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 }

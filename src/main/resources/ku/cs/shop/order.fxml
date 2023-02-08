@@ -422,30 +422,12 @@
                         <Insets left="25.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/interrogation.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="primary-button" />
-                        <String fx:value="normal-text" />
-                        <String fx:value="shadow-effect" />
-                        <String fx:value="round-border" />
-                     </styleClass>
-                     <HBox.margin>
-                        <Insets left="850.0" />
-                     </HBox.margin>
-                  </Button>
                   <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect">
                      <image>
                         <Image url="@../../../images/FAZADA.png" />
                      </image>
                      <HBox.margin>
-                        <Insets left="15.0" right="25.0" />
+                        <Insets left="900.0" />
                      </HBox.margin>
                   </ImageView>
                </children>

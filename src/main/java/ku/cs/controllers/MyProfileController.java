@@ -9,11 +9,12 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class ProfileController {
+public class MyProfileController {
 
-    @FXML
-    public void initialize() {
+    @FXML private Button backButton;
 
+    @FXML public void initialize() {
+        setButtonEffect(backButton);
     }
 
     public void setButtonEffect(Button button) {

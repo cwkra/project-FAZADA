@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.MyPurchaseController">
    <children>
       <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -155,7 +155,7 @@
                   <String fx:value="shadow-effect" />
                </styleClass>
                <children>
-                  <Button mnemonicParsing="false" text="&lt; ย้อนกลับ">
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButton" text="&lt; ย้อนกลับ">
                      <styleClass>
                         <String fx:value="round-border" />
                         <String fx:value="button-text" />
@@ -166,30 +166,12 @@
                         <Insets left="25.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/interrogation.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="primary-button" />
-                        <String fx:value="normal-text" />
-                        <String fx:value="shadow-effect" />
-                        <String fx:value="round-border" />
-                     </styleClass>
-                     <HBox.margin>
-                        <Insets left="850.0" />
-                     </HBox.margin>
-                  </Button>
                   <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect">
                      <image>
                         <Image url="@../../../images/FAZADA.png" />
                      </image>
                      <HBox.margin>
-                        <Insets left="15.0" right="25.0" />
+                        <Insets left="900.0" />
                      </HBox.margin>
                   </ImageView>
                </children>

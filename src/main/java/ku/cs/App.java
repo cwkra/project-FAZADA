@@ -22,8 +22,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "FAZADA.exe", 1280, 800);
         configRoute();
-//        stage.initStyle(StageStyle.TRANSPARENT);
-        FXRouter.goTo("marketplace");
+        stage.initStyle(StageStyle.TRANSPARENT);
+        FXRouter.goTo("sign_in");
     }
 
     private static void configRoute() {
@@ -31,6 +31,12 @@ public class App extends Application {
         FXRouter.when("sign_in", packageStr+"sign_in.fxml");
         FXRouter.when("sign_up", packageStr+"sign_up.fxml");
         FXRouter.when("marketplace", packageStr+"marketplace.fxml");
+        FXRouter.when("my_profile", packageStr+"user/my_profile.fxml");
+        FXRouter.when("my_purchase", packageStr+"user/my_purchase.fxml");
+        FXRouter.when("shop_setup", packageStr+"shop/shop_setup.fxml");
+        FXRouter.when("my_shop", packageStr+"user/my_shop.fxml");
+        FXRouter.when("user_list", packageStr+"admin/user_list.fxml");
+        FXRouter.when("help", packageStr+"help.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {

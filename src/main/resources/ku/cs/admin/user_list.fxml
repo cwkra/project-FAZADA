@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ManageUserController">
    <children>
       <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -40,53 +40,6 @@
                </children>
             </VBox>
          </left>
-         <top>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER_LEFT">
-               <styleClass>
-                  <String fx:value="secondary-color" />
-                  <String fx:value="shadow-effect" />
-               </styleClass>
-               <children>
-                  <Button mnemonicParsing="false" text="&lt; ย้อนกลับ">
-                     <styleClass>
-                        <String fx:value="round-border" />
-                        <String fx:value="button-text" />
-                        <String fx:value="cancel-button" />
-                        <String fx:value="shadow-effect" />
-                     </styleClass>
-                     <HBox.margin>
-                        <Insets left="25.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/interrogation.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="primary-button" />
-                        <String fx:value="normal-text" />
-                        <String fx:value="shadow-effect" />
-                        <String fx:value="round-border" />
-                     </styleClass>
-                     <HBox.margin>
-                        <Insets left="850.0" />
-                     </HBox.margin>
-                  </Button>
-                  <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect">
-                     <image>
-                        <Image url="@../../../images/FAZADA.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="15.0" right="25.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-            </HBox>
-         </top>
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
@@ -179,7 +132,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="275.0" text="ชื่อผู้ใช้">
+                                    <Label prefHeight="30.0" prefWidth="275.0" text="ชื่อผู้ใช้">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -188,6 +141,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                               </HBox>
@@ -203,7 +159,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="275.0" text="ชื่อ">
+                                    <Label prefHeight="30.0" prefWidth="275.0" text="ชื่อ">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -212,6 +168,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                                  <VBox.margin>
@@ -230,7 +189,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="275.0" text="นามสกุล">
+                                    <Label prefHeight="30.0" prefWidth="275.0" text="นามสกุล">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -239,6 +198,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                               </HBox>
@@ -254,7 +216,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="275.0" text="ชื่อร้านค้า">
+                                    <Label prefHeight="30.0" prefWidth="275.0" text="ชื่อร้านค้า">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -263,6 +225,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                                  <VBox.margin>
@@ -281,7 +246,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="275.0" text="อีเมล">
+                                    <Label prefHeight="30.0" prefWidth="275.0" text="อีเมล">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -290,6 +255,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                                  <VBox.margin>
@@ -308,7 +276,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="275.0" text="หมายเลขโทรศัพท์">
+                                    <Label prefHeight="30.0" prefWidth="275.0" text="หมายเลขโทรศัพท์">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -317,6 +285,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                                  <VBox.margin>
@@ -335,7 +306,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="275.0" text="สถานะ">
+                                    <Label prefHeight="30.0" prefWidth="275.0" text="สถานะ">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -344,6 +315,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                                  <VBox.margin>
@@ -362,7 +336,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="225.0" text="วันเวลาที่เข้าใช้ล่าสุด">
+                                    <Label prefHeight="30.0" prefWidth="225.0" text="วันเวลาที่เข้าใช้ล่าสุด">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -371,6 +345,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                                  <VBox.margin>
@@ -389,7 +366,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="225.0" text="จำนวนครั้งพยายามเข้าถึง">
+                                    <Label prefHeight="30.0" prefWidth="225.0" text="จำนวนครั้งพยายามเข้าถึง">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -398,6 +375,9 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
                                     </Label>
                                  </children>
                                  <VBox.margin>
@@ -437,6 +417,35 @@
                </children>
             </VBox>
          </center>
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <styleClass>
+                  <String fx:value="secondary-color" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+               <children>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButton" text="&lt; ย้อนกลับ">
+                     <styleClass>
+                        <String fx:value="round-border" />
+                        <String fx:value="button-text" />
+                        <String fx:value="cancel-button" />
+                        <String fx:value="shadow-effect" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect">
+                     <image>
+                        <Image url="@../../../images/FAZADA.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="900.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>

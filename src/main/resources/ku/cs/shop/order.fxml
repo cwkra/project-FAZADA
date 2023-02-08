@@ -46,7 +46,7 @@
                   </Label>
                   <HBox prefHeight="200.0" prefWidth="900.0">
                      <children>
-                        <ScrollPane prefWidth="980.0">
+                        <ScrollPane prefWidth="500.0">
                            <content>
                               <GridPane prefHeight="1.0" prefWidth="0.0">
                                  <rowConstraints>

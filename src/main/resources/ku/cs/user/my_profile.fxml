@@ -29,21 +29,21 @@
                         <String fx:value="shadow-effect" />
                      </styleClass>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="ที่อยู่ของฉัน">
+                  <Button mnemonicParsing="false" onAction="#goToMyAddress" prefHeight="75.0" prefWidth="200.0" text="ที่อยู่ของฉัน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
                         <String fx:value="primary-button" />
                      </styleClass>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="เปลี่ยนรหัสผ่าน">
+                  <Button mnemonicParsing="false" onAction="#goToChangePassword" prefHeight="75.0" prefWidth="200.0" text="เปลี่ยนรหัสผ่าน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
                         <String fx:value="primary-button" />
                      </styleClass>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="การซื้อของฉัน">
+                  <Button mnemonicParsing="false" onAction="#goToMyPurchase" prefHeight="75.0" prefWidth="200.0" text="การซื้อของฉัน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
@@ -59,8 +59,8 @@
                   <Insets bottom="50.0" left="25.0" right="50.0" top="50.0" />
                </BorderPane.margin>
                <children>
-                  <Circle fill="WHITE" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="shadow-effect" />
-                  <Button mnemonicParsing="false" text="แก้ไขรูปภาพ">
+                  <Circle fx:id="imageCircle" fill="WHITE" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="shadow-effect" />
+                  <Button fx:id="editImageButton" mnemonicParsing="false" text="แก้ไขรูปภาพ">
                      <VBox.margin>
                         <Insets top="25.0" />
                      </VBox.margin>
@@ -116,7 +116,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="30.0" prefWidth="300.0" text="ชื่อผู้ใช้">
+                        <Label fx:id="usernameLabel" prefHeight="30.0" prefWidth="300.0" text="ชื่อผู้ใช้">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
@@ -146,7 +146,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="30.0" prefWidth="300.0" text="ชื่อ">
+                        <Label fx:id="firstNameLabel" prefHeight="30.0" prefWidth="300.0" text="ชื่อ">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
@@ -176,7 +176,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="30.0" prefWidth="300.0" text="นามสกุล">
+                        <Label fx:id="lastNameLabel" prefHeight="30.0" prefWidth="300.0" text="นามสกุล">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
@@ -203,7 +203,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="30.0" prefWidth="300.0" text="อีเมล">
+                        <Label fx:id="emailLabel" prefHeight="30.0" prefWidth="300.0" text="อีเมล">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
@@ -230,7 +230,34 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="30.0" prefWidth="300.0" text="หมายเลขโทรศัพท์">
+                        <Label fx:id="telephoneNumberLabel" prefHeight="30.0" prefWidth="300.0" text="หมายเลขโทรศัพท์">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="quarterly-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="ชื่อร้านค้า">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="shopNameLabel" prefHeight="30.0" prefWidth="300.0" text="ชื่อร้านค้า">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
@@ -247,7 +274,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="50.0" text="แก้ไขข้อมูลของฉัน">
+                        <Button fx:id="editProfileButton" mnemonicParsing="false" onAction="#goToEditProfile" prefHeight="50.0" text="แก้ไขข้อมูลของฉัน">
                            <styleClass>
                               <String fx:value="round-border" />
                               <String fx:value="button-text" />

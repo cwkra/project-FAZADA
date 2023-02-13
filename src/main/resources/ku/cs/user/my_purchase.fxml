@@ -24,21 +24,21 @@
                   <String fx:value="shadow-effect" />
                </styleClass>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="บัญชีของฉัน">
+                  <Button mnemonicParsing="false" onAction="#goToMyProfile" prefHeight="75.0" prefWidth="200.0" text="บัญชีของฉัน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
                         <String fx:value="primary-button" />
                      </styleClass>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="ที่อยู่ของฉัน">
+                  <Button mnemonicParsing="false" onAction="#goToMyAddress" prefHeight="75.0" prefWidth="200.0" text="ที่อยู่ของฉัน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
                         <String fx:value="primary-button" />
                      </styleClass>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="เปลี่ยนรหัสผ่าน">
+                  <Button mnemonicParsing="false" onAction="#goToChangePassword" prefHeight="75.0" prefWidth="200.0" text="เปลี่ยนรหัสผ่าน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />

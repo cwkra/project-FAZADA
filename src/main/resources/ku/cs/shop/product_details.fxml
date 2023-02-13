@@ -216,7 +216,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="60.0" prefWidth="580.0">
                      <children>
-                        <Button mnemonicParsing="false" prefWidth="200.0" text="ซื้อสินค้า">
+                        <Button fx:id="buyButton" mnemonicParsing="false" onAction="#handleBuyButton" prefWidth="200.0" text="ซื้อสินค้า">
                            <styleClass>
                               <String fx:value="round-border" />
                               <String fx:value="button-text" />
@@ -239,7 +239,7 @@
                   <String fx:value="shadow-effect" />
                </styleClass>
                <children>
-                  <Button mnemonicParsing="false" text="&lt; ย้อนกลับ">
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButton" text="&lt; ย้อนกลับ">
                      <styleClass>
                         <String fx:value="round-border" />
                         <String fx:value="button-text" />

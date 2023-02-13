@@ -31,14 +31,14 @@
                         <String fx:value="shadow-effect" />
                      </styleClass>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="รายการคำสั่งซื้อ">
+                  <Button mnemonicParsing="false" onAction="#goToOrderList" prefHeight="75.0" prefWidth="200.0" text="รายการคำสั่งซื้อ">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
                         <String fx:value="primary-button" />
                      </styleClass>
                   </Button>
-                  <Button ellipsisString="" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="รายการจัดส่งสินค้า" textOverrun="CLIP">
+                  <Button ellipsisString="" mnemonicParsing="false" onAction="#goToDeliveryList" prefHeight="75.0" prefWidth="200.0" text="รายการจัดส่งสินค้า" textOverrun="CLIP">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
@@ -78,7 +78,7 @@
                               <Insets left="25.0" top="25.0" />
                            </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" text="+ เพิ่มรายการสินค้า">
+                        <Button fx:id="addProductButton" mnemonicParsing="false" onAction="#goToAddProduct" text="+ เพิ่มรายการสินค้า">
                            <HBox.margin>
                               <Insets left="550.0" top="25.0" />
                            </HBox.margin>

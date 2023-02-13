@@ -119,7 +119,7 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="40.0" prefWidth="400.0" text="ข้อความแจ้งเตือน">
+                                    <Label fx:id="messageLabel" alignment="CENTER" prefHeight="40.0" prefWidth="400.0" text="ข้อความแจ้งเตือน">
                                        <styleClass>
                                           <String fx:value="normal-text" />
                                           <String fx:value="round-border" />
@@ -144,7 +144,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="45.0" prefWidth="350.0">
+                                    <TextField fx:id="shopNameTextField" prefHeight="45.0" prefWidth="350.0" promptText="ชื่อร้านค้า">
                                        <styleClass>
                                           <String fx:value="text-field" />
                                           <String fx:value="round-border" />
@@ -156,7 +156,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefWidth="200.0" text="สร้างร้านค้า">
+                                    <Button fx:id="registerShopButton" mnemonicParsing="false" onAction="#createShop" prefWidth="200.0" text="สร้างร้านค้า">
                                        <styleClass>
                                           <String fx:value="round-border" />
                                           <String fx:value="button-text" />

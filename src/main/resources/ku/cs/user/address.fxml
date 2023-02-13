@@ -10,20 +10,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="200.0" prefWidth="900.0" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+<AnchorPane prefHeight="200.0" prefWidth="750.0" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AddressController">
    <styleClass>
       <String fx:value="shadow-effect" />
       <String fx:value="round-border" />
       <String fx:value="tertiary-color" />
    </styleClass>
    <children>
-      <HBox layoutX="350.0" layoutY="62.0" prefHeight="200.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutX="350.0" layoutY="62.0" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="800.0">
+            <VBox prefHeight="200.0" prefWidth="650.0">
                <children>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label text="ชื่อ">
+                        <Label fx:id="nameLabel" text="ชื่อ">
                            <HBox.margin>
                               <Insets left="20.0" top="15.0" />
                            </HBox.margin>
@@ -36,19 +36,19 @@
                               <Insets left="15.0" right="15.0" top="5.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="25.0" layoutY="25.0" styleClass="normal-text" text="(เบอร์โทรศัพท์)">
+                        <Label fx:id="telephoneNumberLabel" layoutX="25.0" layoutY="25.0" styleClass="normal-text" text="(เบอร์โทรศัพท์)">
                            <HBox.margin>
                               <Insets left="10.0" top="15.0" />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <Label ellipsisString="" prefWidth="750.0" styleClass="normal-text" text="รายละเอียดที่อยู่" textOverrun="CLIP" wrapText="true">
+                  <Label fx:id="addressDetailsLabel1" ellipsisString="" prefWidth="750.0" styleClass="normal-text" text="รายละเอียดที่อยู่" textOverrun="CLIP" wrapText="true">
                      <VBox.margin>
-                        <Insets left="25.0" right="25.0" top="25.0" />
+                        <Insets left="25.0" right="25.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label styleClass="normal-text" text="เขต/อำเภอ, จังหวัด, รหัสไปรษณีย์" textOverrun="CLIP" wrapText="true">
+                  <Label fx:id="addressDetailsLabel2" styleClass="normal-text" text="เขต/อำเภอ, จังหวัด, รหัสไปรษณีย์" textOverrun="CLIP" wrapText="true">
                      <VBox.margin>
                         <Insets left="25.0" top="5.0" />
                      </VBox.margin>
@@ -65,7 +65,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false">
+                  <Button fx:id="editAddressButton" mnemonicParsing="false" onAction="#goToEditAddress">
                      <styleClass>
                         <String fx:value="primary-button" />
                         <String fx:value="round-border" />
@@ -85,7 +85,7 @@
                         <Insets bottom="25.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="27.0" layoutY="116.0" mnemonicParsing="false">
+                  <Button fx:id="deleteAddressButton" layoutX="27.0" layoutY="116.0" mnemonicParsing="false" onAction="#deleteAddress">
                      <styleClass>
                         <String fx:value="cancel-button" />
                         <String fx:value="round-border" />

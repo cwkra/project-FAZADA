@@ -1,19 +1,22 @@
 package ku.cs.controllers;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import ku.cs.models.User;
+import ku.cs.models.UserList;
+import ku.cs.services.DataSource;
+import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 public class SignInController {
 
@@ -22,10 +25,19 @@ public class SignInController {
     @FXML private PasswordField passwordField;
     @FXML private PasswordField confirmPasswordField;
     @FXML private Button closeButton;
-//    @FXML private MenuButton themeButton;
     @FXML private Button signUpButton;
-
+    @FXML private Label messageLabel;
+    private DataSource<UserList> userDataSource = new UserFileDataSource();
+    private UserList userList = userDataSource.readData();
     @FXML public void initialize() {
+        messageLabel.setManaged(false);
+        messageLabel.setText("");
+        String signUpSuccessful = (String) com.github.saacsos.FXRouter.getData();
+        if (signUpSuccessful!=null) {
+            messageLabel.setManaged(true);
+            messageLabel.setText(signUpSuccessful);
+            messageLabel.setStyle("-fx-background-color: #91C9C7");
+        }
         setButtonEffect(signInButton);
         setButtonEffect(signUpButton);
         setButtonEffect(closeButton);
@@ -51,8 +63,10 @@ public class SignInController {
     }
 
     @FXML public void handleSignUpButton(ActionEvent event) throws IOException {
+        messageLabel.setManaged(false);
+        messageLabel.setText("");
         try {
-            com.github.saacsos.FXRouter.goTo("sign_up");
+            com.github.saacsos.FXRouter.goTo("sign_up", null);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า sign_up ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -60,11 +74,41 @@ public class SignInController {
     }
 
     @FXML public void handleSignInButton(ActionEvent event) throws IOException {
-        try {
-            com.github.saacsos.FXRouter.goTo("marketplace");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า marketplace ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+        String username = usernameTextField.getText();
+        String password = passwordField.getText();
+        String confirmPassword = confirmPasswordField.getText();
+        if (username.equals("") || password.equals("") || confirmPassword.equals("")) {
+            messageLabel.setManaged(true);
+            messageLabel.setText("กรุณากรอกข้อมูลให้ครบ");
+            messageLabel.setStyle("-fx-background-color: #F394AF");
+        }
+        else if (!userList.checkUsername(username)){
+            messageLabel.setManaged(true);
+            messageLabel.setText("ชื่อผู้ใช้ไม่ถูกต้อง กรุณาตรวจสอบข้อมูลอีกครั้ง");
+            messageLabel.setStyle("-fx-background-color: #F394AF");
+        }
+        else {
+            User user = userList.searchUsername(username);
+            if (!user.isPassword(password) || !password.equals(confirmPassword)) {
+                messageLabel.setManaged(true);
+                messageLabel.setText("รหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบข้อมูลอีกครั้ง");
+                messageLabel.setStyle("-fx-background-color: #F394AF");
+            }
+            else if (user.isBanned()) {
+                messageLabel.setManaged(true);
+                messageLabel.setText("บัญชีของคุณถูกระงับการใช้งาน โปรดติดต่อผู้ดูแล");
+                messageLabel.setStyle("-fx-background-color: #F394AF");
+            }
+            else {
+                user.setSignInTime(LocalDateTime.now());
+                userDataSource.writeData(userList);
+                try {
+                    com.github.saacsos.FXRouter.goTo("marketplace", user);
+                } catch (IOException e) {
+                    System.err.println("ไปที่หน้า marketplace ไม่ได้");
+                    System.err.println("ให้ตรวจสอบการกำหนด route");
+                }
+            }
         }
     }
 }

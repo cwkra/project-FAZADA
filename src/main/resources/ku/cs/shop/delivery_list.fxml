@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ManageDeliveryController">
    <children>
       <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -22,14 +22,14 @@
                   <String fx:value="shadow-effect" />
                </styleClass>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="ร้านค้าของฉัน">
+                  <Button mnemonicParsing="false" onAction="#goToMyShop" prefHeight="75.0" prefWidth="200.0" text="ร้านค้าของฉัน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
                         <String fx:value="primary-button" />
                      </styleClass>
                   </Button>
-                  <Button ellipsisString="" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="รายการคำสั่งซื้อ" textOverrun="CLIP">
+                  <Button ellipsisString="" mnemonicParsing="false" onAction="#goToOrderList" prefHeight="75.0" prefWidth="200.0" text="รายการคำสั่งซื้อ" textOverrun="CLIP">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
@@ -103,7 +103,7 @@
                   <String fx:value="shadow-effect" />
                </styleClass>
                <children>
-                  <Button mnemonicParsing="false" text="&lt; ย้อนกลับ">
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButton" text="&lt; ย้อนกลับ">
                      <styleClass>
                         <String fx:value="round-border" />
                         <String fx:value="button-text" />

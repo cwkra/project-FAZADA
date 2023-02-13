@@ -30,7 +30,7 @@
                         <String fx:value="shadow-effect" />
                      </styleClass>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="รายงานความไม่เหมาะสม" textOverrun="CLIP">
+                  <Button mnemonicParsing="false" onAction="#goToManageReport" prefHeight="75.0" prefWidth="200.0" text="รายงานความไม่เหมาะสม" textOverrun="CLIP">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
@@ -386,7 +386,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="ระงับสิทธิ์การเข้าใช้งาน" textOverrun="CLIP">
+                                    <Button fx:id="banButton" mnemonicParsing="false" text="ระงับสิทธิ์การเข้าใช้งาน" textOverrun="CLIP">
                                        <styleClass>
                                           <String fx:value="round-border" />
                                           <String fx:value="shadow-effect" />
@@ -394,7 +394,7 @@
                                           <String fx:value="normal-text" />
                                        </styleClass>
                                     </Button>
-                                    <Button mnemonicParsing="false" text="คืนสิทธิ์การเข้าใช้งาน" textOverrun="CLIP">
+                                    <Button fx:id="unBanButton" mnemonicParsing="false" text="คืนสิทธิ์การเข้าใช้งาน" textOverrun="CLIP">
                                        <styleClass>
                                           <String fx:value="round-border" />
                                           <String fx:value="shadow-effect" />

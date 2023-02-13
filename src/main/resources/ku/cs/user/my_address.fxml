@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.MyAddressController">
    <children>
       <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -24,7 +24,7 @@
                   <String fx:value="shadow-effect" />
                </styleClass>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="บัญชีของฉัน">
+                  <Button mnemonicParsing="false" onAction="#goToMyProfile" prefHeight="75.0" prefWidth="200.0" text="บัญชีของฉัน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
@@ -38,14 +38,14 @@
                         <String fx:value="shadow-effect" />
                      </styleClass>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="เปลี่ยนรหัสผ่าน">
+                  <Button mnemonicParsing="false" onAction="#goToChangePassword" prefHeight="75.0" prefWidth="200.0" text="เปลี่ยนรหัสผ่าน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
                         <String fx:value="primary-button" />
                      </styleClass>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="การซื้อของฉัน">
+                  <Button mnemonicParsing="false" onAction="#goToMyPurchase" prefHeight="75.0" prefWidth="200.0" text="การซื้อของฉัน">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="shadow-effect" />
@@ -71,7 +71,7 @@
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <Label text="ที่อยู่ของฉัน">
+                        <Label fx:id="headerLabel" prefWidth="250.0" text="ที่อยู่ของฉัน">
                            <styleClass>
                               <String fx:value="header-text" />
                               <String fx:value="tertiary-color" />
@@ -85,9 +85,9 @@
                               <Insets left="25.0" top="25.0" />
                            </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" text="+ เพิ่มที่อยู่">
+                        <Button fx:id="addAddressButton" mnemonicParsing="false" onAction="#goToAddAddress" text="+ เพิ่มที่อยู่">
                            <HBox.margin>
-                              <Insets left="600.0" top="25.0" />
+                              <Insets left="550.0" top="25.0" />
                            </HBox.margin>
                            <styleClass>
                               <String fx:value="button-text" />
@@ -100,16 +100,26 @@
                   </HBox>
                   <HBox prefHeight="450.0" prefWidth="900.0">
                      <children>
-                        <ScrollPane prefWidth="980.0">
+                        <ScrollPane fx:id="scroll" prefWidth="980.0">
                            <content>
-                              <GridPane prefHeight="1.0" prefWidth="0.0">
+                              <GridPane fx:id="grid" prefHeight="1.0" prefWidth="0.0">
                                  <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                               </GridPane>
                            </content>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="scroll-bar" />
+                              <String fx:value="scroll-pane" />
+                           </styleClass>
                         </ScrollPane>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
@@ -121,7 +131,7 @@
                   <String fx:value="shadow-effect" />
                </styleClass>
                <children>
-                  <Button mnemonicParsing="false" text="&lt; ย้อนกลับ">
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButton" text="&lt; ย้อนกลับ">
                      <styleClass>
                         <String fx:value="round-border" />
                         <String fx:value="button-text" />

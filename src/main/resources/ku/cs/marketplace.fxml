@@ -184,7 +184,7 @@
                         <String fx:value="shadow-effect" />
                      </styleClass>
                   </TextField>
-                  <Button layoutX="810.0" layoutY="25.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0">
+                  <Button fx:id="searchButton" layoutX="810.0" layoutY="25.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -254,35 +254,35 @@
       </BorderPane>
       <VBox fx:id="menuVbox" alignment="TOP_CENTER" layoutX="1080.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToMyProfile" prefHeight="75.0" prefWidth="200.0" text="บัญชีของฉัน">
+            <Button fx:id="myProfileButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToMyProfile" prefHeight="75.0" prefWidth="200.0" text="บัญชีของฉัน">
                <styleClass>
                   <String fx:value="primary-button" />
                   <String fx:value="normal-text" />
                   <String fx:value="shadow-effect" />
                </styleClass>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToMyPurchase" prefHeight="75.0" prefWidth="200.0" text="การซื้อของฉัน">
+            <Button fx:id="myPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToMyPurchase" prefHeight="75.0" prefWidth="200.0" text="การซื้อของฉัน">
                <styleClass>
                   <String fx:value="primary-button" />
                   <String fx:value="normal-text" />
                   <String fx:value="shadow-effect" />
                </styleClass>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToRegisterShop" prefHeight="75.0" prefWidth="200.0" text="ลงทะเบียนร้านค้า">
+            <Button fx:id="registerShopButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToRegisterShop" prefHeight="75.0" prefWidth="200.0" text="ลงทะเบียนร้านค้า">
                <styleClass>
                   <String fx:value="primary-button" />
                   <String fx:value="normal-text" />
                   <String fx:value="shadow-effect" />
                </styleClass>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToMyShop" prefHeight="75.0" prefWidth="200.0" text="ร้านค้าของฉัน">
+            <Button fx:id="myShopButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToMyShop" prefHeight="75.0" prefWidth="200.0" text="ร้านค้าของฉัน">
                <styleClass>
                   <String fx:value="primary-button" />
                   <String fx:value="normal-text" />
                   <String fx:value="shadow-effect" />
                </styleClass>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToAdminSystems" prefHeight="75.0" prefWidth="200.0" text="จัดการระบบ">
+            <Button fx:id="adminSystemsButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToAdminSystems" prefHeight="75.0" prefWidth="200.0" text="จัดการระบบ">
                <styleClass>
                   <String fx:value="primary-button" />
                   <String fx:value="normal-text" />
@@ -300,7 +300,14 @@
                   <String fx:value="primary-button" />
                </styleClass>
             </MenuButton>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="75.0" prefWidth="200.0" text="ออกจากระบบ">
+            <Button fx:id="logoutButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="75.0" prefWidth="200.0" text="ออกจากระบบ">
+               <styleClass>
+                  <String fx:value="cancel-button" />
+                  <String fx:value="normal-text" />
+                  <String fx:value="shadow-effect" />
+               </styleClass>
+            </Button>
+            <Button fx:id="exitButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="75.0" prefWidth="200.0" text="ออก">
                <styleClass>
                   <String fx:value="cancel-button" />
                   <String fx:value="normal-text" />

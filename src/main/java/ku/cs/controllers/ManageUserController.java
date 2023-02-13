@@ -11,11 +11,14 @@ import java.io.IOException;
 
 public class ManageUserController {
 
-    @FXML
-    private Button backButton;
+    @FXML private Button backButton;
+    @FXML private Button banButton;
+    @FXML private Button unBanButton;
 
     @FXML public void initialize() {
         setButtonEffect(backButton);
+        setButtonEffect(banButton);
+        setButtonEffect(unBanButton);
     }
 
     public void setButtonEffect(Button button) {
@@ -39,6 +42,15 @@ public class ManageUserController {
             com.github.saacsos.FXRouter.goTo("marketplace");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า marketplace ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML public void goToManageReport(ActionEvent event) throws IOException {
+        try {
+            com.github.saacsos.FXRouter.goTo("report_list");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า report_list ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

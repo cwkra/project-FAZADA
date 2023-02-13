@@ -31,11 +31,36 @@ public class App extends Application {
         FXRouter.when("sign_in", packageStr+"sign_in.fxml");
         FXRouter.when("sign_up", packageStr+"sign_up.fxml");
         FXRouter.when("marketplace", packageStr+"marketplace.fxml");
+
+//        Profile Page
         FXRouter.when("my_profile", packageStr+"user/my_profile.fxml");
+        FXRouter.when("edit_profile", packageStr+"user/edit_profile.fxml");
+
+//        Address Page
+        FXRouter.when("my_address", packageStr+"user/my_address.fxml");
+        FXRouter.when("add_address", packageStr+"user/add_address.fxml");
+        FXRouter.when("edit_address", packageStr+"user/edit_address.fxml");
+
+//        Change Password Page
+        FXRouter.when("change_password", packageStr+"user/change_password.fxml");
+
+//        Purchase Page
         FXRouter.when("my_purchase", packageStr+"user/my_purchase.fxml");
+
+//        Shop Page
         FXRouter.when("shop_setup", packageStr+"shop/shop_setup.fxml");
-        FXRouter.when("my_shop", packageStr+"user/my_shop.fxml");
+        FXRouter.when("my_shop", packageStr+"shop/my_shop.fxml");
+        FXRouter.when("order_list", packageStr+"shop/order_list.fxml");
+        FXRouter.when("delivery_list", packageStr+"shop/delivery_list.fxml");
+        FXRouter.when("add_product", packageStr+"shop/add_product.fxml");
+        FXRouter.when("edit_product", packageStr+"shop/edit_product.fxml");
+        FXRouter.when("add_stock", packageStr+"shop/add_stock.fxml");
+
+//        Admin Page
         FXRouter.when("user_list", packageStr+"admin/user_list.fxml");
+        FXRouter.when("report_list", packageStr+"admin/report_list.fxml");
+
+//        Help Page
         FXRouter.when("help", packageStr+"help.fxml");
     }
 

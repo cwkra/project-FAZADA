@@ -7,6 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import ku.cs.models.User;
+import ku.cs.models.UserList;
+import ku.cs.services.DataSource;
+import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
 
@@ -15,13 +19,41 @@ public class MarketplaceController {
     @FXML private Button menuButton;
     @FXML private Button menuCloseButton;
     @FXML private Button helpButton;
+    @FXML private Button myProfileButton;
+    @FXML private Button myPurchaseButton;
+    @FXML private Button registerShopButton;
+    @FXML private Button myShopButton;
+    @FXML private Button adminSystemsButton;
+    @FXML private Button logoutButton;
+    @FXML private Button exitButton;
     @FXML private VBox menuVbox;
+    @FXML private Button searchButton;
+    private DataSource<UserList> userDataSource = new UserFileDataSource();
+    private UserList userList = userDataSource.readData();
+    private User user;
 
     @FXML public void initialize() {
+        user = (User) com.github.saacsos.FXRouter.getData();
+        setButtonEffect(searchButton);
         setMenuVbox(menuVbox);
         menuVbox.setVisible(false);
         menuButton.setVisible(true);
         menuCloseButton.setVisible(false);
+        if (user.isUser() && user.getShopName().equals("")) {
+            registerShopButton.setManaged(true);
+            myShopButton.setManaged(false);
+            adminSystemsButton.setManaged(false);
+        }
+        else if (user.isUser() && !user.getShopName().equals("")) {
+            registerShopButton.setManaged(false);
+            myShopButton.setManaged(true);
+            adminSystemsButton.setManaged(false);
+        }
+        else {
+            registerShopButton.setManaged(false);
+            myShopButton.setManaged(false);
+            adminSystemsButton.setManaged(true);
+        }
     }
 
     public void setMenuVbox(VBox vBox) {
@@ -66,16 +98,21 @@ public class MarketplaceController {
 
     @FXML public void handleLogoutButton(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("sign_in");
+            com.github.saacsos.FXRouter.goTo("sign_in", null);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า sign_in ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
+    @FXML public void handleExitButton() {
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
+    }
+
     @FXML public void goToMyProfile(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("my_profile");
+            com.github.saacsos.FXRouter.goTo("my_profile", user);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า my_profile ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -84,7 +121,7 @@ public class MarketplaceController {
 
     @FXML public void goToMyPurchase(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("my_purchase");
+            com.github.saacsos.FXRouter.goTo("my_purchase", user);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า my_purchase ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -93,7 +130,7 @@ public class MarketplaceController {
 
     @FXML public void goToRegisterShop(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("shop_setup");
+            com.github.saacsos.FXRouter.goTo("shop_setup", user);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า shop_setup ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -102,7 +139,7 @@ public class MarketplaceController {
 
     @FXML public void goToMyShop(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("my_shop");
+            com.github.saacsos.FXRouter.goTo("my_shop", user);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า my_shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -111,7 +148,7 @@ public class MarketplaceController {
 
     @FXML public void goToAdminSystems(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("user_list");
+            com.github.saacsos.FXRouter.goTo("user_list", user);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า user_list ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -120,7 +157,7 @@ public class MarketplaceController {
 
     @FXML public void handleHelpButton(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("help");
+            com.github.saacsos.FXRouter.goTo("help", user);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า help ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

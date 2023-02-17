@@ -1,4 +1,4 @@
-package ku.cs.controllers;
+package ku.cs.controllers.admin;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;

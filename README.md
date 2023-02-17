@@ -36,5 +36,29 @@
 * ### ครั้งที่ 2 (08/02/2566)
   * UI (fxml)
     * แก้ไข หน้ายืนยันรายการคำสั่งซื้อ
-* ### ครั้งที่ 3 ()
-  * 
+* ### ครั้งที่ 3 (09/02/2566)
+  * UI (fxml)
+    * แก้ไขบางส่วน
+  * Controller
+    * แก้ไขบางส่วน
+* ### ครั้งที่ 4 (13/02/2566)
+  * UI (fxml)
+  * Controller
+    * MyProfile (main, edit)
+    * MyAddress (main, add, edit, delete)
+    * ChangePassword (main)
+    * RegisterShop (main)
+  * Model
+    * User
+    * Address
+  * Test
+    * อ่านข้อมูล, เขียนข้อมูล
+* ### ครั้งที่ 5 (18/02/2566)
+  * UI (fxml)
+  * Controller
+    * Marketplace (show products, can click show details)
+    * Products (add, edit)
+  * Model
+    * Products
+    * Shopping Cart
+    * Order (ยังไม่เสร็จ)

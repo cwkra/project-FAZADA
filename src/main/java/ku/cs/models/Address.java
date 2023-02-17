@@ -106,6 +106,10 @@ public class Address {
         return this.id.equals(id);
     }
 
+    @Override
+    public String toString() {
+        return " " + name + " (" + telephoneNumber + ")";
+    }
     public String toCSV() {
         return id + "," + username + "," + name + "," + telephoneNumber + "," + district + "," + province + "," + zipCode + "," + addressDetails;
     }

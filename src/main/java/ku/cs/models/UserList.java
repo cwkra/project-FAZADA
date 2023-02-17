@@ -67,15 +67,6 @@ public class UserList {
         return null;
     }
 
-    public User searchPassword(String password) {
-        for (User user: this.users) {
-            if (user.isPassword(password)) {
-                return user;
-            }
-        }
-        return null;
-    }
-
     public User searchShopName(String shopName) {
         for (User user: this.users) {
             if (user.isShopName(shopName)) {
@@ -99,6 +90,11 @@ public class UserList {
     public void setShopName(User user) {
         User editUser = searchUsername(user.getUsername());
         editUser.setShopName(user.getShopName());
+    }
+
+    public void setImagePath(User user) {
+        User editUser = searchUsername(user.getUsername());
+        editUser.setImagePath(user.getImagePath());
     }
 
     public String toCSV() {

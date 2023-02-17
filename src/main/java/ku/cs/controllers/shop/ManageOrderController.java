@@ -1,4 +1,4 @@
-package ku.cs.controllers;
+package ku.cs.controllers.shop;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -9,7 +9,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class ManageDeliveryController {
+public class ManageOrderController {
     @FXML
     private Button backButton;
 
@@ -51,13 +51,12 @@ public class ManageDeliveryController {
         }
     }
 
-    @FXML public void goToOrderList(ActionEvent event) throws IOException {
+    @FXML public void goToDeliveryList(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("order_list");
+            com.github.saacsos.FXRouter.goTo("delivery_list");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า order_list ไม่ได้");
+            System.err.println("ไปที่หน้า delivery_list ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
 }

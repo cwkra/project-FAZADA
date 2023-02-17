@@ -1,11 +1,13 @@
-package ku.cs.controllers;
+package ku.cs.controllers.user;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import ku.cs.models.Address;
 import ku.cs.models.AddressList;
@@ -17,7 +19,7 @@ import ku.cs.services.MyListener;
 import java.io.IOException;
 
 public class AddressController {
-
+    @FXML private AnchorPane addressPane;
     @FXML private Label nameLabel;
     @FXML private Label telephoneNumberLabel;
     @FXML private Label addressDetailsLabel1;
@@ -34,6 +36,27 @@ public class AddressController {
         setButtonEffect(deleteAddressButton);
         this.myAddress = address;
         showAddress(address);
+        setEffect();
+    }
+
+    public void setEffect() {
+        addressPane.setCursor(Cursor.DEFAULT);
+        addressPane.setOnMouseEntered(mouseEvent -> {
+            TranslateTransition transition = new TranslateTransition(Duration.millis(300));
+            transition.setNode(addressPane);
+            transition.setToY(-2);
+            addressPane.setScaleX(1.025);
+            addressPane.setScaleY(1.025);
+            transition.playFromStart();
+        });
+        addressPane.setOnMouseExited(mouseEvent -> {
+            TranslateTransition transition = new TranslateTransition(Duration.millis(300));
+            transition.setNode(addressPane);
+            transition.setToY(2);
+            addressPane.setScaleX(1);
+            addressPane.setScaleY(1);
+            transition.playFromStart();
+        });
     }
 
     public void showAddress(Address address) {

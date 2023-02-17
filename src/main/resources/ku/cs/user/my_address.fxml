@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.MyAddressController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.user.MyAddressController">
    <children>
       <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -111,10 +111,6 @@
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
-                           <styleClass>
-                              <String fx:value="scroll-bar" />
-                              <String fx:value="scroll-pane" />
-                           </styleClass>
                         </ScrollPane>
                      </children>
                      <VBox.margin>

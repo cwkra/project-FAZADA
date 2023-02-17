@@ -1,4 +1,4 @@
-package ku.cs.controllers;
+package ku.cs.controllers.admin;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -9,12 +9,13 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class ManageOrderController {
-    @FXML
-    private Button backButton;
+public class ManageReportController {
+    @FXML private Button backButton;
+    @FXML private Button deleteButton;
 
     @FXML public void initialize() {
         setButtonEffect(backButton);
+        setButtonEffect(deleteButton);
     }
 
     public void setButtonEffect(Button button) {
@@ -42,20 +43,11 @@ public class ManageOrderController {
         }
     }
 
-    @FXML public void goToMyShop(ActionEvent event) throws IOException {
+    @FXML public void goToManageUser(ActionEvent event) throws IOException {
         try {
-            com.github.saacsos.FXRouter.goTo("my_shop");
+            com.github.saacsos.FXRouter.goTo("user_list");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า my_shop ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML public void goToDeliveryList(ActionEvent event) throws IOException {
-        try {
-            com.github.saacsos.FXRouter.goTo("delivery_list");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า delivery_list ไม่ได้");
+            System.err.println("ไปที่หน้า user_list ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

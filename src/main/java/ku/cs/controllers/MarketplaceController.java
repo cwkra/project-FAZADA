@@ -3,19 +3,30 @@ package ku.cs.controllers;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import ku.cs.controllers.shop.ProductController;
+import ku.cs.models.Product;
+import ku.cs.models.ProductList;
 import ku.cs.models.User;
 import ku.cs.models.UserList;
 import ku.cs.services.DataSource;
+import ku.cs.services.ProductFileDataSource;
 import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
 
 public class MarketplaceController {
-
+    @FXML private ScrollPane scroll;
+    @FXML private GridPane grid;
     @FXML private Button menuButton;
     @FXML private Button menuCloseButton;
     @FXML private Button helpButton;
@@ -31,6 +42,9 @@ public class MarketplaceController {
     private DataSource<UserList> userDataSource = new UserFileDataSource();
     private UserList userList = userDataSource.readData();
     private User user;
+    private DataSource<ProductList> productListDataSource = new ProductFileDataSource();
+    private ProductList productList = productListDataSource.readData();
+    private Product product;
 
     @FXML public void initialize() {
         user = (User) com.github.saacsos.FXRouter.getData();
@@ -39,12 +53,12 @@ public class MarketplaceController {
         menuVbox.setVisible(false);
         menuButton.setVisible(true);
         menuCloseButton.setVisible(false);
-        if (user.isUser() && user.getShopName().equals("")) {
+        if (user.isUser()) {
             registerShopButton.setManaged(true);
             myShopButton.setManaged(false);
             adminSystemsButton.setManaged(false);
         }
-        else if (user.isUser() && !user.getShopName().equals("")) {
+        else if (user.isSeller()) {
             registerShopButton.setManaged(false);
             myShopButton.setManaged(true);
             adminSystemsButton.setManaged(false);
@@ -53,6 +67,37 @@ public class MarketplaceController {
             registerShopButton.setManaged(false);
             myShopButton.setManaged(false);
             adminSystemsButton.setManaged(true);
+        }
+        showProducts();
+    }
+
+    private void showProducts() {
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < productList.getAllProducts().size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(this.getClass().getResource("/ku/cs/shop/product.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                ProductController ProductController = fxmlLoader.getController();
+                product = productList.getAllProducts().get(i);
+                ProductController.initialize(product);
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+                grid.add(anchorPane, column++, row);
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

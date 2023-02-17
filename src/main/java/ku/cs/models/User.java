@@ -45,7 +45,7 @@ public class User {
         this.signInTime = LocalDateTime.MIN;
         this.banStatus = "NOT_BANNED";
         this.accessCount = 0;
-        this.imagePath = "src/main/resources/user.png";
+        this.imagePath = "src/main/resources/images/user.png";
     }
 
     public String getRole() {
@@ -167,11 +167,12 @@ public class User {
     public boolean isAdmin() {
         return this.role.equals("ADMIN");
     }
-
     public boolean isUser() {
         return this.role.equals("USER");
     }
-
+    public boolean isSeller() {
+        return this.role.equals("SELLER");
+    }
     public boolean isBanned() {
         return this.banStatus.equals("BANNED");
     }

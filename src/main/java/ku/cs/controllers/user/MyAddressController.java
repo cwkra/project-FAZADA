@@ -1,4 +1,4 @@
-package ku.cs.controllers;
+package ku.cs.controllers.user;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -13,13 +13,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
+import ku.cs.controllers.user.AddressController;
 import ku.cs.models.Address;
 import ku.cs.models.AddressList;
 import ku.cs.models.User;
 import ku.cs.models.UserList;
 import ku.cs.services.AddressFileDataSource;
 import ku.cs.services.DataSource;
-import ku.cs.services.MyListener;
 import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
@@ -65,7 +65,7 @@ public class MyAddressController {
                 fxmlLoader.setLocation(this.getClass().getResource("/ku/cs/user/address.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 AddressController addressController = fxmlLoader.getController();
-                address = addressList.getAllAddresses().get(i);
+                address = addressList.getMyAddresses(user.getUsername()).get(i);
 //                addressController.showAddress(address);
                 addressController.initialize(address);
                 if (column == 1) {

@@ -14,6 +14,11 @@
     -fx-background-color: #fff;
 }
 
+.stroke-border {
+    -fx-border-color: #000;
+    -fx-border-width: 2;
+}
+
 .success-color {
     -fx-background-color: #91C9C7;
 }
@@ -22,12 +27,20 @@
     -fx-background-color: #F394AF;
 }
 
+.less-round-border {
+    -fx-background-radius: 25;
+}
+
 .round-border {
     -fx-background-radius: 50;
 }
 
+.more-round-border {
+    -fx-background-radius: 150;
+}
+
 .shadow-effect {
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 20, 0, 0, 3);;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 20, 0, 0, 3);;
 }
 
 .header-text {
@@ -95,16 +108,43 @@
 }
 
 .text-area {
-    -fx-faint-focus-color: #9BC4DB;
+    -fx-faint-focus-color: transparent;
 }
 
-.list-view .list-cell:even {
-    -fx-background-color: FDE9C0;
-    -fx-border-radius: 50;
+.text-area:focused .content {
+    -fx-background-color:  #fff;
 }
-.list-view .list-cell:odd {
-    -fx-background-color: FDE9C0;
+
+.list-view .list-cell:selected {
+    -fx-background-color: #9BC4DB;
+    -fx-background-radius: 50;
     -fx-border-radius: 50;
+    -fx-text-fill: BLACK;
+    -fx-font-family: "FC Iconic";
+    -fx-font-size: 20;
+    -fx-font-weight: BOLD;
+}
+.list-cell {
+    -fx-background-insets: 5, 5, 0, 5;
+    -fx-padding: 12.5;
+}
+
+.list-cell:even {
+    -fx-background-color: #FDE9C0;
+    -fx-background-radius: 50;
+    -fx-font-family: "FC Iconic";
+    -fx-font-size: 20;
+    -fx-font-weight: BOLD;
+}
+.list-cell:odd {
+    -fx-background-color: #FDE9C0;
+    -fx-background-radius: 50;
+    -fx-font-family: "FC Iconic";
+    -fx-font-size: 20;
+    -fx-font-weight: BOLD;
+}
+.list-cell:empty {
+    -fx-background-color: transparent;
 }
 
 .scroll-bar:horizontal .track,
@@ -158,6 +198,7 @@
 
 .scroll-bar:horizontal .thumb:hover,
 .scroll-bar:vertical .thumb:hover {
+    -fx-cursor: HAND;
     -fx-background-color : #9BC4DB;
     -fx-background-insets : 2.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
@@ -165,6 +206,7 @@
 
 .scroll-bar:horizontal .thumb:pressed,
 .scroll-bar:vertical .thumb:pressed {
+    -fx-cursor: HAND;
     -fx-background-color : #9BC4DB;
     -fx-background-insets : 2.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;

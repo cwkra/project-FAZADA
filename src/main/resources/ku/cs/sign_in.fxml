@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -18,6 +20,30 @@
          <left>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="420.0" styleClass="secondary-color" BorderPane.alignment="CENTER">
                <children>
+                  <Label text="ยังไม่มีบัญชี ?" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="shadow-effect" />
+                        <String fx:value="header-text" />
+                        <String fx:value="round-border" />
+                     </styleClass>
+                     <font>
+                        <Font name="FC Minimal Bold" size="75.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/2.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </ImageView>
                   <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#handleSignUpButton" text="สมัครสมาชิก">
                      <styleClass>
                         <String fx:value="button-text" />

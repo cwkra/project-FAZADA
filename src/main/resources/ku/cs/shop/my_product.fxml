@@ -7,10 +7,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="275.0" prefWidth="250.0" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.MyProductController">
+<AnchorPane fx:id="productPane" onMouseClicked="#goToMyProductDetails" prefHeight="275.0" prefWidth="250.0" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.shop.MyProductController">
    <styleClass>
       <String fx:value="round-border" />
       <String fx:value="shadow-effect" />
@@ -24,8 +25,12 @@
                   <Insets bottom="10.0" left="25.0" top="15.0" />
                </VBox.margin>
             </Label>
-            <ImageView fx:id="productImageView" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect" />
-            <Label fx:id="priceLabel" alignment="CENTER_RIGHT" ellipsisString="" prefWidth="200.0" styleClass="normal-text" text="ราคาสินค้า" textOverrun="CLIP">
+            <BorderPane prefHeight="150.0" prefWidth="250.0">
+               <center>
+                  <ImageView fx:id="productImageView" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow-effect" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <Label fx:id="priceLabel" alignment="CENTER_RIGHT" ellipsisString="" prefWidth="205.0" styleClass="normal-text" text="ราคาสินค้า" textOverrun="CLIP">
                <VBox.margin>
                   <Insets left="25.0" top="10.0" />
                </VBox.margin>
@@ -49,7 +54,7 @@
                         <Insets bottom="7.5" left="7.5" right="7.5" top="7.5" />
                      </padding>
                   </Button>
-                  <Button fx:id="addStockButton" mnemonicParsing="false" onAction="#goToAddStockButton">
+                  <Button fx:id="addStockButton" mnemonicParsing="false" onAction="#goToAddStock">
                      <styleClass>
                         <String fx:value="shadow-effect" />
                         <String fx:value="round-border" />
@@ -69,7 +74,7 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Label fx:id="amountLabel" alignment="CENTER_RIGHT" ellipsisString="" styleClass="normal-text" text="มีจำนวน x ชิ้น" textOverrun="CLIP">
+                  <Label fx:id="stockLabel" alignment="CENTER_RIGHT" ellipsisString="" styleClass="normal-text" text="มีจำนวน x ชิ้น" textOverrun="CLIP">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>

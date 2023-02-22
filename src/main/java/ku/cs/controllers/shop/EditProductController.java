@@ -4,13 +4,19 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import ku.cs.models.Product;
 import ku.cs.models.ProductList;
@@ -177,10 +183,18 @@ public class EditProductController {
             productList.editProduct(product);
             productListDataSource.writeData(productList);
             try {
-                com.github.saacsos.FXRouter.goTo("my_shop", user);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/edit_product_successful.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.TRANSPARENT);
+                EditProductSuccessfulController controller = fxmlLoader.getController();
+                controller.initialize(product);
+                stage.show();
             } catch (IOException e) {
-                System.err.println("ไปที่หน้า my_shop ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
+                e.printStackTrace();
             }
         }
     }

@@ -3,7 +3,10 @@ package ku.cs.controllers.shop;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -11,7 +14,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import ku.cs.controllers.user.ConfirmDeleteAddressController;
 import ku.cs.models.Product;
 import ku.cs.models.ProductList;
 import ku.cs.services.DataSource;
@@ -21,13 +28,22 @@ import ku.cs.services.ProductFileDataSource;
 import java.io.IOException;
 
 public class MyProductController {
-    @FXML private AnchorPane productPane;
-    @FXML private Label nameLabel;
-    @FXML private Label priceLabel;
-    @FXML private Label stockLabel;
-    @FXML private ImageView productImageView;
-    @FXML private Button editProductButton;
-    @FXML private Button addStockButton;
+    @FXML
+    private AnchorPane productPane;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label priceLabel;
+    @FXML
+    private Label stockLabel;
+    @FXML
+    private ImageView productImageView;
+    @FXML
+    private Button editProductButton;
+    @FXML
+    private Button addStockButton;
+    @FXML
+    private Button deleteProductButton;
     private DataSource<ProductList> productListDataSource = new ProductFileDataSource();
     private ProductList productList = productListDataSource.readData();
     private Product myProduct;
@@ -35,6 +51,7 @@ public class MyProductController {
     public void initialize(Product product) {
         setButtonEffect(editProductButton);
         setButtonEffect(addStockButton);
+        setButtonEffect(deleteProductButton);
         showProduct(product);
         this.myProduct = product;
         setEffect();
@@ -44,7 +61,7 @@ public class MyProductController {
         nameLabel.setText(product.getName());
         priceLabel.setText(String.format("%.2f ฿", product.getPrice()));
         stockLabel.setText(String.format("มีจำนวน %d ชิ้น", product.getStock()));
-        productImageView.setImage(new Image("file:"+product.getImagePath()));
+        productImageView.setImage(new Image("file:" + product.getImagePath()));
     }
 
     public void setEffect() {
@@ -66,6 +83,7 @@ public class MyProductController {
             transition.playFromStart();
         });
     }
+
     public void setButtonEffect(Button button) {
         button.setCursor(Cursor.HAND);
         button.setOnMouseEntered(mouseEvent -> {
@@ -91,7 +109,8 @@ public class MyProductController {
         }
     }
 
-    @FXML public void goToEditProduct(ActionEvent event) throws IOException {
+    @FXML
+    public void goToEditProduct(ActionEvent event) throws IOException {
         try {
             com.github.saacsos.FXRouter.goTo("edit_product", myProduct);
         } catch (IOException e) {
@@ -100,12 +119,31 @@ public class MyProductController {
         }
     }
 
-    @FXML public void goToAddStock(ActionEvent event) throws IOException {
+    @FXML
+    public void goToAddStock(ActionEvent event) throws IOException {
         try {
             com.github.saacsos.FXRouter.goTo("add_stock", myProduct);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า add_stock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void deleteProduct(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/confirm_delete_product.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            ConfirmDeleteProductController controller = fxmlLoader.getController();
+            controller.initialize(myProduct);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

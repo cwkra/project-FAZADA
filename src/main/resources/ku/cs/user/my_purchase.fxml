@@ -134,9 +134,9 @@
                   </HBox>
                   <HBox prefHeight="450.0" prefWidth="900.0">
                      <children>
-                        <ScrollPane prefWidth="980.0">
+                        <ScrollPane fx:id="scroll" prefWidth="980.0">
                            <content>
-                              <GridPane prefHeight="1.0" prefWidth="0.0">
+                              <GridPane fx:id="grid" prefHeight="1.0" prefWidth="0.0">
                                  <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>

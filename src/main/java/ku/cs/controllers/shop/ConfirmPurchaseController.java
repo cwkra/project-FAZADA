@@ -9,24 +9,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import ku.cs.App;
 import ku.cs.models.*;
-import ku.cs.services.AddressFileDataSource;
-import ku.cs.services.DataSource;
-import ku.cs.services.ProductFileDataSource;
-import ku.cs.services.UserFileDataSource;
+import ku.cs.services.*;
 
 import java.io.IOException;
 
@@ -41,10 +33,11 @@ public class ConfirmPurchaseController {
     @FXML private Label categoryLabel;
     @FXML private TextArea productDetailsTextArea;
     @FXML private ListView<Address> addressListView;
-    @FXML private Label userNameLabel;
-    @FXML private Label userTelLabel;
-    @FXML private Label userDistrictLabel;
-    @FXML private Label userProvinceLabel;
+    @FXML private TextField nameTextField;
+    @FXML private TextField telNumTextField;
+    @FXML private TextField districtTextField;
+    @FXML private TextField provinceTextField;
+    @FXML private TextField zipCodeTextField;
     @FXML private TextArea addressDetailsTextArea;
     @FXML private Button confirmPurchaseButton;
     private DataSource<UserList> userDataSource = new UserFileDataSource();
@@ -57,6 +50,9 @@ public class ConfirmPurchaseController {
     private DataSource<ProductList> productListDataSource = new ProductFileDataSource();
     private ProductList productList = productListDataSource.readData();
     private Product product;
+    private DataSource<OrderList> orderListDataSource = new OrderFileDataSource();
+    private OrderList orderList = orderListDataSource.readData();
+    private Order order;
     private ShoppingCart shoppingCart;
 
 
@@ -103,7 +99,7 @@ public class ConfirmPurchaseController {
                                         Address oldValue, Address newValue) {
                         System.out.println(newValue + " is selected");
                         selectedAddress = newValue;
-                        showSelectedAddress(newValue);
+                        showAddress(newValue);
                     }
                 });
     }
@@ -112,7 +108,8 @@ public class ConfirmPurchaseController {
         shopNameLabel.setText(product.getShopName());
         productNameLabel.setText(product.getName());
         quantityLabel.setText(String.format("%d ชิ้น", shoppingCart.getQuantity()));
-        cumulativePurchaseLabel.setText(String.format("%.2f ฿", product.getPrice()*shoppingCart.getQuantity()));
+        double cumulativePurchase = product.getPrice()*shoppingCart.getQuantity();
+        cumulativePurchaseLabel.setText(String.format("%.2f ฿", cumulativePurchase));
         categoryLabel.setText(product.getCategory());
         productDetailsTextArea.setEditable(false);
         productDetailsTextArea.setText(product.getDetails());
@@ -120,39 +117,64 @@ public class ConfirmPurchaseController {
         circleImage.setFill(new ImagePattern(image));
     }
 
-    private void showSelectedAddress(Address address) {
-        userNameLabel.setText(address.getName());
-        userTelLabel.setText(address.getTelephoneNumber());
-        userDistrictLabel.setText(address.getDistrict());
-        userProvinceLabel.setText(address.getProvince());
+    private void showAddress(Address address) {
+        nameTextField.setEditable(false);
+        nameTextField.setText(address.getName());
+        telNumTextField.setEditable(false);
+        telNumTextField.setText(address.getTelephoneNumber());
+        districtTextField.setEditable(false);
+        districtTextField.setText(address.getDistrict());
+        provinceTextField.setEditable(false);
+        provinceTextField.setText(address.getProvince());
+        zipCodeTextField.setEditable(false);
+        zipCodeTextField.setText(address.getZipCode());
         addressDetailsTextArea.setEditable(false);
         addressDetailsTextArea.setText(address.getAddressDetails());
     }
 
     private void clearSelectedAddress() {
-        userNameLabel.setText("");
-        userTelLabel.setText("");
-        userDistrictLabel.setText("");
-        userProvinceLabel.setText("");
+        nameTextField.setEditable(false);
+        nameTextField.setText("");
+        telNumTextField.setEditable(false);
+        telNumTextField.setText("");
+        districtTextField.setEditable(false);
+        districtTextField.setText("");
+        provinceTextField.setEditable(false);
+        provinceTextField.setText("");
+        zipCodeTextField.setEditable(false);
+        zipCodeTextField.setText("");
         addressDetailsTextArea.setEditable(false);
         addressDetailsTextArea.setText("");
     }
 
     @FXML public void confirmPurchase(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/order/purchase_successful.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            scene.setFill(Color.TRANSPARENT);
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.TRANSPARENT);
-            PurchaseSuccessfulController controller = fxmlLoader.getController();
-            controller.initialize(shoppingCart);
-            stage.show();
+        if (selectedAddress == null) {
+            messageLabel.setManaged(true);
+            messageLabel.setText("กรุณาเลือกที่อยู่ในการจัดส่ง");
         }
-        catch (IOException e) {
-            e.printStackTrace();
+        else {
+            product.addSold(shoppingCart.getQuantity());
+            product.reduceStock(shoppingCart.getQuantity());
+            productList.editProduct(product);
+            productListDataSource.writeData(productList);
+            double cumulativePurchase = product.getPrice()*shoppingCart.getQuantity();
+            order = new Order(product.getId(), user.getUsername(), selectedAddress.getId(), product.getShopName(), shoppingCart.getQuantity(), cumulativePurchase);
+            orderList.addOrder(order);
+            orderListDataSource.writeData(orderList);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/purchase_successful.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.TRANSPARENT);
+                PurchaseSuccessfulController controller = fxmlLoader.getController();
+                controller.initialize(user);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -90,6 +90,7 @@ public class UserList {
     public void setShopName(User user) {
         User editUser = searchUsername(user.getUsername());
         editUser.setShopName(user.getShopName());
+        editUser.setRole(user.getRole());
     }
 
     public void setImagePath(User user) {

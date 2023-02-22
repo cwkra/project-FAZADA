@@ -32,12 +32,6 @@ public class SignInController {
     @FXML public void initialize() {
         messageLabel.setManaged(false);
         messageLabel.setText("");
-        String signUpSuccessful = (String) com.github.saacsos.FXRouter.getData();
-        if (signUpSuccessful!=null) {
-            messageLabel.setManaged(true);
-            messageLabel.setText(signUpSuccessful);
-            messageLabel.setStyle("-fx-background-color: #91C9C7");
-        }
         setButtonEffect(signInButton);
         setButtonEffect(signUpButton);
         setButtonEffect(closeButton);

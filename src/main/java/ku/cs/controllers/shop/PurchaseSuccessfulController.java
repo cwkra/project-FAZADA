@@ -16,17 +16,13 @@ import java.io.IOException;
 
 public class PurchaseSuccessfulController {
     @FXML private Button submitButton;
-    @FXML private Button closeButton;
     private DataSource<UserList> userDataSource = new UserFileDataSource();
     private UserList userList = userDataSource.readData();
     private User user;
-    private ShoppingCart shoppingCart;
 
-    public void initialize(ShoppingCart shoppingCart) {
-        shoppingCart = (ShoppingCart) com.github.saacsos.FXRouter.getData();
-        user = shoppingCart.getUser();
+    public void initialize(User user) {
+        this.user = user;
         setButtonEffect(submitButton);
-        setButtonEffect(closeButton);
     }
 
     public void setButtonEffect(Button button) {
@@ -46,17 +42,6 @@ public class PurchaseSuccessfulController {
 
     @FXML public void submit(ActionEvent event) {
         Stage stage = (Stage) submitButton.getScene().getWindow();
-        stage.close();
-        try {
-            com.github.saacsos.FXRouter.goTo("marketplace", user);
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า marketplace ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @FXML public void clickCloseButton(ActionEvent event) {
-        Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
         try {
             com.github.saacsos.FXRouter.goTo("marketplace", user);

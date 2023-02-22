@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -42,9 +43,9 @@
                         <Insets left="25.0" top="25.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="150.0" prefWidth="900.0">
+                  <HBox alignment="CENTER" prefHeight="200.0" prefWidth="900.0">
                      <VBox.margin>
-                        <Insets bottom="25.0" top="25.0" />
+                        <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
                      <children>
                         <ListView fx:id="addressListView" prefHeight="200.0" prefWidth="450.0">
@@ -75,16 +76,13 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="userNameLabel" prefHeight="30.0" prefWidth="300.0" text="ชื่อ">
+                        <TextField fx:id="nameTextField" prefWidth="250.0" promptText="ชื่อ">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
-                              <String fx:value="quarterly-color" />
+                              <String fx:value="shadow-effect" />
                            </styleClass>
-                           <padding>
-                              <Insets left="15.0" />
-                           </padding>
-                        </Label>
+                        </TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
@@ -99,16 +97,13 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="userTelLabel" prefHeight="30.0" prefWidth="300.0" text="หมายเลขโทรศัพท์">
+                        <TextField fx:id="telNumTextField" prefWidth="250.0" promptText="หมายเลขโทรศัพท์">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
-                              <String fx:value="quarterly-color" />
+                              <String fx:value="shadow-effect" />
                            </styleClass>
-                           <padding>
-                              <Insets left="15.0" />
-                           </padding>
-                        </Label>
+                        </TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
@@ -123,16 +118,13 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="userDistrictLabel" prefHeight="30.0" prefWidth="300.0" text="เขต/อำเภอ">
+                        <TextField fx:id="districtTextField" prefWidth="250.0" promptText="เขต/อำเภอ">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
-                              <String fx:value="quarterly-color" />
+                              <String fx:value="shadow-effect" />
                            </styleClass>
-                           <padding>
-                              <Insets left="15.0" />
-                           </padding>
-                        </Label>
+                        </TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
@@ -147,16 +139,34 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="userProvinceLabel" prefHeight="30.0" prefWidth="300.0" text="จังหวัด">
+                        <TextField fx:id="provinceTextField" prefWidth="250.0" promptText="จังหวัด">
                            <styleClass>
                               <String fx:value="normal-text" />
                               <String fx:value="round-border" />
-                              <String fx:value="quarterly-color" />
+                              <String fx:value="shadow-effect" />
                            </styleClass>
-                           <padding>
-                              <Insets left="15.0" />
-                           </padding>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="900.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="รหัสไปรษณีย์">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="tertiary-color" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
                         </Label>
+                        <TextField fx:id="zipCodeTextField" prefWidth="250.0" promptText="รหัสไปรษณีย์">
+                           <styleClass>
+                              <String fx:value="normal-text" />
+                              <String fx:value="round-border" />
+                              <String fx:value="shadow-effect" />
+                           </styleClass>
+                        </TextField>
                      </children>
                   </HBox>
                   <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="รายละเอียดที่อยู่">
@@ -169,7 +179,7 @@
                         <Insets bottom="10.0" left="20.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextArea fx:id="addressDetailsTextArea" prefHeight="100.0" prefWidth="531.2">
+                  <TextArea fx:id="addressDetailsTextArea" prefHeight="100.0" prefWidth="531.2" promptText="รายละเอียดที่อยู่">
                      <styleClass>
                         <String fx:value="normal-text" />
                         <String fx:value="text-area" />

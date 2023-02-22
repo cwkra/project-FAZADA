@@ -46,6 +46,7 @@ public class App extends Application {
 
 //        Purchase Page
         FXRouter.when("my_purchase", packageStr+"user/my_purchase.fxml");
+        FXRouter.when("purchase_details", packageStr+"user/purchase_details.fxml");
         FXRouter.when("confirm_purchase", packageStr+"order/confirm_purchase.fxml");
 
 //        Shop Page

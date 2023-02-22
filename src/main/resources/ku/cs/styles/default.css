@@ -16,7 +16,8 @@
 
 .stroke-border {
     -fx-border-color: #000;
-    -fx-border-width: 2;
+    -fx-border-width: 1;
+    -fx-border-radius: 25;
 }
 
 .success-color {

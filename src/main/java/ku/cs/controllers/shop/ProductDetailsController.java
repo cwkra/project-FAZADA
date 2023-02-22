@@ -3,14 +3,21 @@ package ku.cs.controllers.shop;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import ku.cs.models.*;
+import ku.cs.services.AddressFileDataSource;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 import ku.cs.services.UserFileDataSource;
@@ -36,6 +43,9 @@ public class ProductDetailsController {
     private DataSource<ProductList> productListDataSource = new ProductFileDataSource();
     private ProductList productList = productListDataSource.readData();
     private Product product;
+    private DataSource<AddressList> addressDataSource = new AddressFileDataSource();
+    private AddressList addressList = addressDataSource.readData();
+    private Address address;
     private ShoppingCart shoppingCart;
     private int quantity = 0;
 
@@ -139,6 +149,22 @@ public class ProductDetailsController {
         if (quantity == 0) {
             messageLabel.setManaged(true);
             messageLabel.setText("กรุณาเลือกจำนวนสินค้าที่ต้องการซื้อ");
+        }
+        else if (addressList.getMyAddresses(user.getUsername()).size() == 0) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/product_details_alert.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.TRANSPARENT);
+                ProductDetailsAlertController controller = fxmlLoader.getController();
+                controller.initialize(user);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         else {
             shoppingCart.setQuantity(quantity);

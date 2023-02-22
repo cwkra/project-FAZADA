@@ -3,13 +3,20 @@ package ku.cs.controllers.user;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import ku.cs.controllers.shop.PurchaseSuccessfulController;
 import ku.cs.models.User;
 import ku.cs.models.UserList;
 import ku.cs.services.DataSource;
@@ -27,7 +34,6 @@ public class EditProfileController {
     @FXML private Button backButton;
     @FXML private Button saveButton;
     @FXML private Button cancelButton;
-    @FXML private Label messageLabel;
     @FXML private Circle imageCircle;
     @FXML private Button editImageButton;
     private DataSource<UserList> userDataSource = new UserFileDataSource();
@@ -35,8 +41,6 @@ public class EditProfileController {
     private User user;
 
     @FXML public void initialize() {
-        messageLabel.setManaged(false);
-        messageLabel.setText("");
         user = (User) com.github.saacsos.FXRouter.getData();
         setButtonEffect(backButton);
         setButtonEffect(saveButton);
@@ -52,11 +56,6 @@ public class EditProfileController {
         emailTextField.setText(user.getEmail());
         telNumberTextField.setText(user.getTelephoneNumber());
         shopNameLabel.setText(user.getShopName());
-//        System.out.println("User ImagePath: "+user.getImagePath() );
-//        Image image = new Image("file:" + user.getImagePath(), true);
-//        System.out.println("IMAGE TO STRING: " + image.toString());
-//        System.out.println("IMAGE: " + image);
-//        imageCircle.setFill(new ImagePattern(image));
     }
 
     public void setButtonEffect(Button button) {
@@ -82,8 +81,20 @@ public class EditProfileController {
         user.setTelephoneNumber(telNumber);
         userList.editProfile(user);
         userDataSource.writeData(userList);
-        messageLabel.setManaged(true);
-        messageLabel.setText("แก้ไขข้อมูลสำเร็จ");
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/edit_profile_successful.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            EditProfileSuccessfulController controller = fxmlLoader.getController();
+            controller.initialize(user);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML public void cancelEditProfile(ActionEvent event) throws IOException {

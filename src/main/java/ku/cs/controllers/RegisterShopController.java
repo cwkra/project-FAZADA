@@ -3,10 +3,16 @@ package ku.cs.controllers;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import ku.cs.models.User;
 import ku.cs.models.UserList;
@@ -44,14 +50,23 @@ public class RegisterShopController {
                 messageLabel.setText("ไม่สามารถกรอกชื่อร้านค้าซ้ำได้ กรุณาเปลี่ยนชื่อร้านค้า");
             }
             else {
+                user.setRole("SELLER");
                 user.setShopName(shopName);
                 userList.setShopName(user);
                 userDataSource.writeData(userList);
                 try {
-                    com.github.saacsos.FXRouter.goTo("marketplace", user);
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/register_shop_successful.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    scene.setFill(Color.TRANSPARENT);
+                    stage.setScene(scene);
+                    stage.initStyle(StageStyle.TRANSPARENT);
+                    RegisterShopSuccessfulController controller = fxmlLoader.getController();
+                    controller.initialize(user);
+                    stage.show();
                 } catch (IOException e) {
-                    System.err.println("ไปที่หน้า marketplace ไม่ได้");
-                    System.err.println("ให้ตรวจสอบการกำหนด route");
+                    e.printStackTrace();
                 }
             }
         }

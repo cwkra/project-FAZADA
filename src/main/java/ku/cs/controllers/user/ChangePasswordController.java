@@ -3,10 +3,16 @@ package ku.cs.controllers.user;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import ku.cs.models.User;
 import ku.cs.models.UserList;
@@ -75,9 +81,20 @@ public class ChangePasswordController {
                 user.setPassword(newPassword);
                 userList.changePassword(user);
                 userDataSource.writeData(userList);
-                messageLabel.setManaged(true);
-                messageLabel.setText("เปลี่ยนรหัสผ่านใหม่สำเร็จ");
-                messageLabel.setStyle("-fx-background-color: #91C9C7");
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/change_password_successful.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    scene.setFill(Color.TRANSPARENT);
+                    stage.setScene(scene);
+                    stage.initStyle(StageStyle.TRANSPARENT);
+                    ChangePasswordSuccessfulController controller = fxmlLoader.getController();
+                    controller.initialize(user);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
         passwordTextField.setText("");

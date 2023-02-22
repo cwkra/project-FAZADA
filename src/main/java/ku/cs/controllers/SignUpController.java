@@ -1,14 +1,15 @@
 package ku.cs.controllers;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Cursor;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import ku.cs.models.User;
 import ku.cs.models.UserList;
@@ -92,10 +93,18 @@ public class SignUpController {
                 userList.addUser(new User(username, password, firstName, lastName));
                 userDataSource.writeData(userList);
                 try {
-                    com.github.saacsos.FXRouter.goTo("sign_in", "สร้างบัญชีสำเร็จ! กรุณาเข้าสู่ระบบเพื่อใช้งาน");
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/sign_up_successful.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    scene.setFill(Color.TRANSPARENT);
+                    stage.setScene(scene);
+                    stage.initStyle(StageStyle.TRANSPARENT);
+                    SignUpSuccessController controller = fxmlLoader.getController();
+                    controller.initialize();
+                    stage.show();
                 } catch (IOException e) {
-                    System.err.println("ไปที่หน้า sign_in ไม่ได้");
-                    System.err.println("ให้ตรวจสอบการกำหนด route");
+                    e.printStackTrace();
                 }
             }
         }

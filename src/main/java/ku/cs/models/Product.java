@@ -89,6 +89,9 @@ public class Product {
     public void setSold(int sold) {
         this.sold = sold;
     }
+    public void addSold(int sold) {
+        this.sold += sold;
+    }
 
     public String getCategory() {
         return category;
@@ -124,6 +127,9 @@ public class Product {
 
     public void addStock(int stock) {
         this.stock += stock;
+    }
+    public void reduceStock(int stock) {
+        this.stock -= stock;
     }
 
     public boolean isId(String id) {

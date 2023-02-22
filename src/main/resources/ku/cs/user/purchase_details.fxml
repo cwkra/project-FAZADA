@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.Address">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" styleClass="primary-color" stylesheets="@../styles/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.user.PurchaseDetailsController">
    <children>
       <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -50,11 +50,35 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="450.0" prefWidth="900.0">
                      <children>
-                        <Circle fill="WHITE" radius="100.0" stroke="BLACK" strokeType="INSIDE">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Circle>
+                        <VBox alignment="CENTER" prefWidth="250.0">
+                           <children>
+                              <HBox alignment="CENTER" maxWidth="210.0" prefHeight="210.0">
+                                 <children>
+                                    <Circle fx:id="imageCircle" fill="WHITE" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Circle>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="quarterly-color" />
+                                    <String fx:value="more-round-border" />
+                                    <String fx:value="shadow-effect" />
+                                 </styleClass>
+                              </HBox>
+                              <Button fx:id="acceptButton" mnemonicParsing="false" onAction="#accept" text="ยอมรับสินค้า">
+                                 <styleClass>
+                                    <String fx:value="round-border" />
+                                    <String fx:value="button-text" />
+                                    <String fx:value="submit-button" />
+                                    <String fx:value="shadow-effect" />
+                                 </styleClass>
+                                 <VBox.margin>
+                                    <Insets top="25.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
                         <VBox prefHeight="200.0" prefWidth="600.0">
                            <HBox.margin>
                               <Insets left="50.0" />
@@ -67,7 +91,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                                  <children>
-                                    <Label prefHeight="30.0" prefWidth="550.0" text="หมายเลขคำสั่งซื้อ: xxxxxx">
+                                    <Label fx:id="productNameLabel" prefHeight="30.0" prefWidth="550.0" text="ชื่อสินค้า">
                                        <HBox.margin>
                                           <Insets left="25.0" />
                                        </HBox.margin>
@@ -87,7 +111,7 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="ชื่อสินค้า">
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="ชื่อร้านค้า">
                                        <HBox.margin>
                                           <Insets left="25.0" />
                                        </HBox.margin>
@@ -97,7 +121,7 @@
                                           <String fx:value="quarterly-color" />
                                        </styleClass>
                                     </Label>
-                                    <Label prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="ชื่อสินค้า">
+                                    <Label fx:id="shopNameLabel" prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="ชื่อร้านค้า">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -116,7 +140,7 @@
                                           <String fx:value="quarterly-color" />
                                        </styleClass>
                                     </Label>
-                                    <Label prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="จำนวนสินค้า">
+                                    <Label fx:id="quantityLabel" prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="จำนวนสินค้า">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -135,7 +159,7 @@
                                           <String fx:value="quarterly-color" />
                                        </styleClass>
                                     </Label>
-                                    <Label prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="รวมการสั่งซื้อ">
+                                    <Label fx:id="cumulativePurchaseLabel" prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="รวมการสั่งซื้อ">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -154,7 +178,7 @@
                                           <String fx:value="quarterly-color" />
                                        </styleClass>
                                     </Label>
-                                    <Label prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="วันเวลาที่สั่งซื้อ">
+                                    <Label fx:id="buyDateTimeLabel" prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="วันเวลาที่สั่งซื้อ">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -173,7 +197,7 @@
                                           <String fx:value="quarterly-color" />
                                        </styleClass>
                                     </Label>
-                                    <Label prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="สถานะการสั่งซื้อ">
+                                    <Label fx:id="statusLabel" prefHeight="30.0" prefWidth="400.0" styleClass="normal-text" text="สถานะการสั่งซื้อ">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
@@ -192,7 +216,7 @@
                                           <String fx:value="quarterly-color" />
                                        </styleClass>
                                     </Label>
-                                    <TextArea prefHeight="200.0" prefWidth="350.0">
+                                    <TextArea fx:id="addressDetailsTextArea" prefHeight="200.0" prefWidth="350.0" promptText="ที่อยู่ในการจัดส่ง">
                                        <HBox.margin>
                                           <Insets left="10.0" top="10.0" />
                                        </HBox.margin>

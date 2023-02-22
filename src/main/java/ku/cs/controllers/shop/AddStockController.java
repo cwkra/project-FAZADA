@@ -3,14 +3,21 @@ package ku.cs.controllers.shop;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import ku.cs.controllers.RegisterShopSuccessfulController;
 import ku.cs.models.Product;
 import ku.cs.models.ProductList;
 import ku.cs.models.User;
@@ -98,10 +105,18 @@ public class AddStockController {
             productList.editProduct(product);
             productListDataSource.writeData(productList);
             try {
-                com.github.saacsos.FXRouter.goTo("my_shop", user);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/add_stock_successful.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.TRANSPARENT);
+                AddStockSuccessfulController controller = fxmlLoader.getController();
+                controller.initialize(product);
+                stage.show();
             } catch (IOException e) {
-                System.err.println("ไปที่หน้า my_shop ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
+                e.printStackTrace();
             }
         }
     }

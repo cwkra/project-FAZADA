@@ -3,11 +3,17 @@ package ku.cs.controllers.user;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import ku.cs.models.Address;
 import ku.cs.models.AddressList;
@@ -77,10 +83,18 @@ public class AddAddressController {
             addressList.addAddress(new Address(user.getUsername(), name, telNumber, district, province, zipCode, details));
             addressDataSource.writeData(addressList);
             try {
-                com.github.saacsos.FXRouter.goTo("my_address", user);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/popup/add_address_successful.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.TRANSPARENT);
+                AddAddressSuccessfulController controller = fxmlLoader.getController();
+                controller.initialize(user);
+                stage.show();
             } catch (IOException e) {
-                System.err.println("ไปที่หน้า my_address ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
+                e.printStackTrace();
             }
         }
     }
